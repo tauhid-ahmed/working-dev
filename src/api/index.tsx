@@ -44,3 +44,11 @@ export function useVans() {
     isLoading,
   };
 }
+
+export function getOneVan(id: string) {
+  const { response, isLoading } = useFetch(`vans/${id}`);
+  return {
+    van: response.vans,
+    isLoading,
+  };
+}
