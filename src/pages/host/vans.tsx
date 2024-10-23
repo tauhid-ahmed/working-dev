@@ -12,7 +12,7 @@ export default function HostVans() {
       <h1 className="font-bold text-4xl">Your listed vans</h1>
       <ul className="space-y-4">
         {vans?.map((van: any) => (
-          <li className="bg-white p-4 rouned flex items-center gap-4">
+          <li key={van.id} className="bg-white p-4 rouned flex items-center gap-4">
             <img className="size-16 rounded" src={van.imageUrl} alt={van.name} />
             <Link className="font-semibold text-lg" to={`/host/vans/${van.id}`}>
               {van.name}
