@@ -3,7 +3,7 @@ import aboutImage from "../assets/about.png";
 
 export default function AboutPage() {
   return (
-    <div className="pt-8 pb-14">
+    <div className="pb-14">
       <img src={aboutImage} alt="about" className="h-[40vh] w-full object-cover" />
       <div className="max-w-2xl mx-auto mt-14 px-4 space-y-6">
         <h1 className="text-4xl font-bold">
