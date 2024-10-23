@@ -52,3 +52,11 @@ export function getOneVan(id: string) {
     isLoading,
   };
 }
+
+export function getHostVans() {
+  const { response, isLoading } = useFetch(`host/vans`);
+  return {
+    vans: response.vans,
+    isLoading,
+  };
+}
