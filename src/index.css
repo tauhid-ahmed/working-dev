@@ -3,4 +3,11 @@
 @theme {
   --color-*: initial;
   --color-background: #fff7ed;
+  --color-rugged: #ffead0;
+  --color-rugged-bold: #e17654;
+
+  --color-accent: #fff7ed;
+  --color-accent: #ffead0;
+  --color-accent: #ff8c38;
+  --color-accent: #e17654;
 }
