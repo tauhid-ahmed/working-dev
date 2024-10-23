@@ -60,3 +60,11 @@ export function getHostVans() {
     isLoading,
   };
 }
+
+export function getHostVansByVanId(id: string) {
+  const { response, isLoading } = useFetch(`host/vans/${id}`);
+  return {
+    van: response.vans,
+    isLoading,
+  };
+}
