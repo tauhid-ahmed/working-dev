@@ -39,26 +39,24 @@ export default function Vans() {
                 alt={van.name}
                 className="w-full aspect-video object-cover rounded-xl"
               />
-              <div className="flex justify-between">
-                <div className="">
-                  <h2 className="text-xl font-medium">{van.name}</h2>
-                  <span
-                    className={classNames(
-                      "capitalize text-white inline-block px-4 py-1 rounded mt-2",
-                      {
-                        "bg-[#E17654]": van.type === "simple",
-                        "bg-[#161616]": van.type === "luxury",
-                        "bg-[#115E59]": van.type === "rugged",
-                      }
-                    )}>
-                    {van.type}
-                  </span>
-                </div>
-                <p className="font-medium">
+              <div className="flex flex-wrap justify-between items-start">
+                <h2 className="text-xl font-medium">{van.name}</h2>
+                <div className="font-medium">
                   <span className="block">${van.price}</span>
                   <span className="block text-xs text-right text-gray-500">/day</span>
-                </p>
+                </div>
               </div>
+              <span
+                className={classNames(
+                  "capitalize text-white inline-block px-4 py-1 rounded mt-2",
+                  {
+                    "bg-[#E17654]": van.type === "simple",
+                    "bg-[#161616]": van.type === "luxury",
+                    "bg-[#115E59]": van.type === "rugged",
+                  }
+                )}>
+                {van.type}
+              </span>
             </Link>
           ))}
         </TwoColumnGrid>
