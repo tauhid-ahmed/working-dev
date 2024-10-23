@@ -4,10 +4,10 @@ import Homepage from "./pages/home";
 import Vans from "./pages/vans";
 import AboutPage from "./pages/about";
 import VanDetails from "./pages/van-details";
+import HostLayout from "./pages/host/layout";
 import Dashboard from "./pages/host/dashboard";
 import Income from "./pages/host/income";
 import Reviews from "./pages/host/reviews";
-import HostVans from "./pages/host/vans";
 
 export default function App() {
   return (
@@ -15,9 +15,9 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Homepage />} />
-          <Route path="/host" element={<Dashboard />}>
+          <Route path="/host" element={<HostLayout />}>
+            <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
-            <Route path="vans" element={<HostVans />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
           <Route path="/vans" element={<Vans />} />
