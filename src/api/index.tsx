@@ -1,22 +1,20 @@
 import React from "react";
 
-const BASE_URL = "http:127.0.0.1:3000";
+const BASE_URL = "/api";
 
-export function getVans(path: string) {
-  const [response, setResponse] = React.useState([]);
+export function useFetch(path: string) {
+  const [response, setResponse] = React.useState<Record<string, string>[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
-
   React.useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       try {
         const res = await fetch(`${BASE_URL}/${path}`, {
           signal: signal,
         });
         const data = await res.json();
-
         if (!signal.aborted) {
           setResponse(data);
         }
@@ -34,6 +32,14 @@ export function getVans(path: string) {
 
   return {
     response,
+    isLoading,
+  };
+}
+
+export function useVans() {
+  const { response: vans, isLoading } = useFetch("vans");
+  return {
+    vans,
     isLoading,
   };
 }
