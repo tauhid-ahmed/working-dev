@@ -20,9 +20,9 @@ function Body({ children }: { children: React.ReactNode }) {
 
 function Footer({ children }: { children: React.ReactNode }) {
   return (
-    <div className="text-center py-4 mt-auto h-16 flex items-center justify-center">
+    <footer className="text-center py-4 mt-auto h-16 flex items-center justify-center text-orange-100 bg-neutral-900">
       {children}
-    </div>
+    </footer>
   );
 }
 
