@@ -1,28 +1,53 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function HostLayout() {
   return (
     <div className="py-10 container">
       <ul className="flex gap-4">
         <li>
-          <Link className="active:underline hover: underline" to="/host">
+          <NavLink
+            end
+            className={({ isActive }) =>
+              isActive
+                ? "underline active:underline text-neutral-950"
+                : "hover:underline text-neutral-950"
+            }
+            to="/host">
             Dashboard
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="active:underline hover: underline" to="/host/income">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "underline active:underline text-neutral-950"
+                : "hover:underline text-neutral-950"
+            }
+            to="/host/income">
             Income
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="active:underline hover: underline" to="/host/vans">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "underline active:underline text-neutral-950"
+                : "hover:underline text-neutral-950"
+            }
+            to="/host/vans">
             Vans
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="active:underline hover: underline" to="/host/reviews">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "underline active:underline text-neutral-950"
+                : "hover:underline text-neutral-950"
+            }
+            to="/host/reviews">
             Reviews
-          </Link>
+          </NavLink>
         </li>
       </ul>
       <Outlet />
