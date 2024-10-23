@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { TwoColumnGrid } from "../grids";
+import { useVans } from "../api";
+import classNames from "classnames";
 
 export default function Vans() {
+  const { vans, isLoading } = useVans();
+  if (isLoading || !vans) return <div className="text-center">Loading...</div>;
   return (
     <div className="mt-20 container space-y-6">
       <h1 className="text-4xl font-bold">Explore our van options</h1>
@@ -26,13 +30,39 @@ export default function Vans() {
         </Link>
       </div>
 
-      <TwoColumnGrid>
-        <div className="h-32 border"></div>
-        <div className="h-32 border"></div>
-        <div className="h-32 border"></div>
-        <div className="h-32 border"></div>
-        <div className="h-32 border"></div>
-      </TwoColumnGrid>
+      <div className="py-10">
+        <TwoColumnGrid>
+          {vans?.map((van: any) => (
+            <Link to={`/vans/${van.id}`} key={van.id} className="space-y-2">
+              <img
+                src={van.imageUrl}
+                alt={van.name}
+                className="w-full aspect-video object-cover rounded-xl"
+              />
+              <div className="flex justify-between">
+                <div className="">
+                  <h2 className="text-xl font-medium">{van.name}</h2>
+                  <span
+                    className={classNames(
+                      "capitalize text-white inline-block px-4 py-1 rounded mt-2",
+                      {
+                        "bg-[#E17654]": van.type === "simple",
+                        "bg-[#161616]": van.type === "luxury",
+                        "bg-[#115E59]": van.type === "rugged",
+                      }
+                    )}>
+                    {van.type}
+                  </span>
+                </div>
+                <p className="font-medium">
+                  <span className="block">${van.price}</span>
+                  <span className="block text-xs text-right text-gray-500">/day</span>
+                </p>
+              </div>
+            </Link>
+          ))}
+        </TwoColumnGrid>
+      </div>
     </div>
   );
 }
