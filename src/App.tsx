@@ -4,12 +4,12 @@ import Homepage from "./pages/home";
 import Vans from "./pages/vans";
 import AboutPage from "./pages/about";
 import VanDetails from "./pages/van-details";
-import HostLayout from "./pages/host/layout";
+import HostLayout from "./pages/host/host-layout";
 import Dashboard from "./pages/host/dashboard";
 import Income from "./pages/host/income";
 import Reviews from "./pages/host/reviews";
 import HostVans from "./pages/host/vans";
-import HostVanDetails from "./pages/host/vans-details";
+import HostVanDetails from "./pages/host/van-details";
 
 export default function App() {
   return (
