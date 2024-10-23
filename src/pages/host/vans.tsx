@@ -1,3 +1,3 @@
-export default function Vans() {
-  return <div>Vans</div>;
+export default function HostVans() {
+  return <div>HostVans</div>;
 }
