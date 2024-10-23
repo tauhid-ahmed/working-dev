@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import heroImage from "../assets/hero-image.png";
 
 export default function Homepage() {
@@ -15,9 +16,11 @@ export default function Homepage() {
           Add adventure to your life by joining the #vanlife movement. Rent the perfect
           van to make your perfect road trip.
         </p>
-        <button className="bg-orange-400 rounded w-full text-white p-3 cursor-pointer font-bold hover:bg-orange-500">
+        <Link
+          to={"/vans"}
+          className="bg-orange-400 block text-center rounded w-full text-white p-3 cursor-pointer font-bold hover:bg-orange-500">
           Find your van
-        </button>
+        </Link>
       </div>
     </div>
   );
