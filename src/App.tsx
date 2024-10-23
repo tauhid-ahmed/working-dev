@@ -3,6 +3,7 @@ import Layout from "./layout";
 import Header from "./components/header";
 import Homepage from "./pages/home";
 import Vans from "./pages/vans";
+import Footer from "./components/footer";
 
 export default function App() {
   return (
@@ -17,7 +18,9 @@ export default function App() {
             <Route path="/vans" element={<Vans />} />
           </Routes>
         </Layout.Body>
-        <Layout.Footer>Footer</Layout.Footer>
+        <Layout.Footer>
+          <Footer />
+        </Layout.Footer>
       </Router>
     </Layout>
   );
