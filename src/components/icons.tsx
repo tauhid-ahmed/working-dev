@@ -751,15 +751,24 @@ const logos = {
   ),
 };
 
-interface TeamLogoProps {
+export interface TeamLogoProps {
   id: keyof typeof logos;
-  width?: string;
+  className?: string;
 }
 
-export default function TeamLogo({ width = "200px", id, ...rest }: TeamLogoProps) {
+export default function TeamLogo({ id, className, ...rest }: TeamLogoProps) {
   return (
-    <svg width={width} {...rest} x="0px" y="0px" viewBox="0 0 125.397 125.397">
+    <svg
+      className={cn(`size-20 md:size-28 lg:size-38 m-0 ${className}`)}
+      {...rest}
+      x="0px"
+      y="0px"
+      viewBox="0 0 125.397 125.397">
       {logos[id]}
     </svg>
   );
+}
+
+function cn(classnames: string) {
+  return classnames.split(" ").filter(Boolean).join(" ");
 }
