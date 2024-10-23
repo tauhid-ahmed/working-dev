@@ -3,7 +3,7 @@ import React from "react";
 const BASE_URL = "/api";
 
 export function useFetch(path: string) {
-  const [response, setResponse] = React.useState<Record<string, string>[]>([]);
+  const [response, setResponse] = React.useState<any>([]);
   const [isLoading, setIsLoading] = React.useState(true);
   React.useEffect(() => {
     const controller = new AbortController();
@@ -37,9 +37,10 @@ export function useFetch(path: string) {
 }
 
 export function useVans() {
-  const { response: vans, isLoading } = useFetch("vans");
+  const { response, isLoading } = useFetch("vans");
+
   return {
-    vans,
+    vans: response.vans,
     isLoading,
   };
 }
